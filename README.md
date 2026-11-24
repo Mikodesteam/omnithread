@@ -55,9 +55,17 @@ E-mail, WhatsApp, Telegram, Messenger, Instagram, SMS and your own website chat 
 - **Webhook and delivery safety: a secret key in every webhook address, bodies over 1 MB refused, CSRF exemption…**: No duplicate messages and no silently lost replies - the top complaint about competing modules.
 - **Channel health: ok, waiting, stale, down or disabled for every mailbox and chat channel, with plain-language…**: Know a channel stopped before customers complain.
 
+## How it works
+
+A technical case study of the architecture, one end-to-end flow, the key engineering decisions and how you would build something like this: **[docs/HOW-IT-WORKS.md](docs/HOW-IT-WORKS.md)**.
+
 ## A look at the code
 
-**Signed webhooks for WhatsApp, Messenger and Instagram**: [`snippets/MetaWebhook.php`](snippets/MetaWebhook.php). Handles the verify-token handshake and the X-Hub-Signature-256 HMAC check shared by three Meta channels. Comparisons are constant-time and unsigned or malformed requests are refused before any message is parsed.
+Real excerpts from the source, shown for illustration:
+
+- **Signed webhooks for WhatsApp, Messenger and Instagram** ([`snippets/MetaWebhook.php`](snippets/MetaWebhook.php)): Handles the verify-token handshake and the X-Hub-Signature-256 HMAC check shared by three Meta channels. Comparisons are constant-time and unsigned or malformed requests are refused before any message is parsed.
+- **Reply approval that cannot be bypassed by editing** ([`snippets/ReplyApproval.php`](snippets/ReplyApproval.php)): A draft submitted for approval is fingerprinted (recipients, subject, body, attachments). If it changes afterwards, or the approver saw an older version, the approval is withdrawn and nothing is sent.
+- **One-time satisfaction links** ([`snippets/CsatLink.php`](snippets/CsatLink.php)): A rating is requested by a link sent on the conversation's own channel. Only a hash of the token is stored, links expire, and the answer is accepted once even if two requests arrive at the same moment.
 
 ## Requirements (full version)
 
