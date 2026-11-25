@@ -8,6 +8,8 @@
   <b>Omnichannel team inbox module for Perfex CRM.</b>
 </p>
 
+<p align="center"><sub>Perfex CRM module · shared team inbox · WhatsApp, Telegram, Messenger, Instagram, SMS & email</sub></p>
+
 <p align="center">
   <a href="https://omnithread-demo.mikodes.com/"><b>▶ Live demo</b></a> ·
   <a href="https://store.mikodes.com/p/omnithread/"><b>Get the full source code</b></a>
@@ -76,6 +78,20 @@ Real excerpts from the source, shown for illustration:
 - Your own accounts for the channels you use
 
 Not included: Perfex CRM itself; Hosting, domain, HTTPS certificate and the mailboxes themselves; Channel accounts and their fees: Meta; Meta App Review for Messenger / Instagram; AI provider usage.
+
+## FAQ
+
+**Is this the full source code?**  
+No. This repository is a showcase with screenshots, a technical case study and real code excerpts. The complete Omnithread source code is sold at [store.mikodes.com/p/omnithread](https://store.mikodes.com/p/omnithread/).
+
+**What is Omnithread built with?**  
+Node.js, PHP, Perfex CRM.
+
+**Can I try it before buying?**  
+Yes, open the [live demo](https://omnithread-demo.mikodes.com/).
+
+**Do I get help with the installation?**  
+Free setup help is included with the store purchase; questions go to [mikodes.com/support](https://mikodes.com/support).
 
 ## Get the full source code
 
